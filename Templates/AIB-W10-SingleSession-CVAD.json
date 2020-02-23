@@ -32,7 +32,7 @@
 		},
 		"ScriptUri": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/BuildScripts/W10-CVAD-SingleSession.ps1",
+			"defaultValue": "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/Scripts/W10-CVAD-SingleSession.ps1",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
 			}

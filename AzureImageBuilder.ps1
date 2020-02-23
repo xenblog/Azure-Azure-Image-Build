@@ -35,3 +35,18 @@ New-AzRoleAssignment -RoleDefinitionName "Contributor" -ApplicationId "cf32a0cc-
 # Deploy AIB Template
 $TemplateUri = "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/Templates/AIB-W10-SingleSession-CVAD.json"
 New-AzResourceGroupDeployment -ResourceGroupName $AIBResourceGroup -TemplateUri $TemplateUri -OutVariable Output -Verbose
+
+# Start Building the Golden Image
+$ImageTemplateName = $Output.Outputs["imageTemplateName"].Value
+Invoke-AzResourceAction -ResourceGroupName $AIBResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ResourceName $ImageTemplateName -Action Run
+
+(Get-AzResource -ResourceGroupName RG_EUS_AzureImageBuilder -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus
+
+
+
+
+# Support 
+Get-AzVMImagePublisher -Location "East US" | Select PublisherName
+Get-AzVMImageOffer -Location "East US" -PublisherName "MicrosoftWindowsDesktop" | Select Offer
+Get-AzVMImageSku -Location "East US" -PublisherName "MicrosoftWindowsDesktop" -Offer "windows-10"
+Get-AzVMImage -Location "East US" -PublisherName "MicrosoftWindowsDesktop" -Offer "windows-10" -Sku "19h2-evd" | Select Version 

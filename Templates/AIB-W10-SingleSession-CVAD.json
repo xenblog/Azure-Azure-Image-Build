@@ -37,13 +37,6 @@
 				"description": "Location of powershell script to customize your image"
 			}
 		},
-		"SIGImageDefinitionId": {
-			"type": "string",
-			"defaultValue": "",
-			"metadata": {
-				"description": "Id of Shared Image Gallery to distribute image to, eg: /subscriptions/<subscriptionID>/resourceGroups/<SIG resourcegroup>/providers/Microsoft.Compute/galleries/<SIG name>/images/<image definition>"
-			}
-		},
 		"ManagedImageName": {
 			"type": "string",
 			"defaultValue": "AIB-Image",

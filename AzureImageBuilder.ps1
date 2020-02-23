@@ -33,7 +33,7 @@ New-AzResourceGroup -Name $AIBResourceGroup -Location $AIBLocation
 New-AzRoleAssignment -RoleDefinitionName "Contributor" -ApplicationId "cf32a0cc-373c-47c9-9156-0db11f6a6dfc" -ResourceGroupName $AIBResourceGroup
 
 # Deploy AIB Template
-$TemplateUri = "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/Templates/AIB-W10-SingleSession-CVAD.json"
+$TemplateUri = "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/Templates/AIB-W10.json"
 New-AzResourceGroupDeployment -ResourceGroupName $AIBResourceGroup -TemplateUri $TemplateUri -OutVariable Output -Verbose
 
 # Start Building the Golden Image

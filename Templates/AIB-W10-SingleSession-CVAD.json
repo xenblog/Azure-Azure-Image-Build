@@ -4,37 +4,35 @@
 	"parameters": {
 		"publisher": {
 			"type": "string",
-			"defaultValue": "MicrosoftWindowsDesktop",
-			"metadata": {
-				"description": "Image Publisher, typical MicrosoftWindowsDesktop or MicrosoftWindowsServer. Can be found with Powershell: Get-AzVMImagePublisher -Location westeurope | Select PublisherName"
-			}
+			"defaultValue": "MicrosoftWindowsDesktop"
 		},
 		"offer": {
 			"type": "string",
-			"defaultValue": "windows-10",
-			"metadata": {
-				"description": "Image Offer , can be found with Powershell: Get-AzVMImageOffer -Location westeurope -PublisherName MicrosoftWindowsDesktop | Select Offer"
-			}
+			"defaultValue": "windows-10"
 		},
 		"sku": {
 			"type": "string",
-			"defaultValue": "19h2-evd",
-			"metadata": {
-				"description": "SKU of the image, can be found with Powershell: Get-AzVMImageSku -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 | Select Skus"
-			}
+			"defaultValue": "19h2-evd"
 		},
 		"version": {
 			"type": "string",
-			"defaultValue": "18363.657.2002091847",
+			"defaultValue": "18363.657.2002091847",			
 			"metadata": {
-				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h2-evd | Select Version"
+				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h1-evd"
 			}
 		},
 		"ScriptUri": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/BuildScripts/W10-CVAD-SingleSession.ps1",
+			"defaultValue": "https://raw.githubusercontent.com/Everink/AzureImageBuilder/master/Scripts/AzureImageBuilder.ps1",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
+			}
+		},
+		"SIGImageDefinitionId": {
+			"type": "string",
+			"defaultValue": "",
+			"metadata": {
+				"description": "Id of Shared Image Gallery to distribute image to, eg: /subscriptions/<subscriptionID>/resourceGroups/<SIG resourcegroup>/providers/Microsoft.Compute/galleries/<SIG name>/images/<image definition>"
 			}
 		},
 		"ManagedImageName": {
@@ -46,6 +44,7 @@
 		},
 		"randomGUID": {
 			"type": "string",
+			"defaultValue": "",
 			"defaultValue": "[newGuid()]"
 		}
 	},

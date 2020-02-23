@@ -62,27 +62,6 @@
 					"sku": "[parameters('sku')]",
 					"version": "[parameters('version')]"
 				},
-				"customize": [
-					{
-						"type": "PowerShell",
-						"name": "InstallApps",
-						"scriptUri": "[parameters('ScriptUri')]"
-					},
-					{
-						"type": "WindowsRestart",
-						"restartTimeout": "30m"
-					}
-				],
-				"distribute": [
-					{
-						"type": "ManagedImage",
-						"imageId": "[variables('ManagedImageId')]",
-						"location": "[resourceGroup().location]",
-						"runOutputName": "AIBimage",
-						"artifactTags": {
-						}
-					}
-				]
 			}
 		}
 	],

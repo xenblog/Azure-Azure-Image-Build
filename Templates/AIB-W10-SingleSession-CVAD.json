@@ -23,7 +23,7 @@
 		},
 		"ScriptUri": {
 			"type": "string",
-			"defaultValue": "",
+			"defaultValue": "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/BuildScripts/W10-NoScript.ps1",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
 			}

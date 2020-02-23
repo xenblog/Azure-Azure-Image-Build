@@ -23,7 +23,7 @@
 		},
 		"ScriptUri": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/Everink/AzureImageBuilder/master/Scripts/AzureImageBuilder.ps1",
+			"defaultValue": "",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
 			}

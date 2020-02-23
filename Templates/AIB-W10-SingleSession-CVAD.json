@@ -4,15 +4,24 @@
 	"parameters": {
 		"publisher": {
 			"type": "string",
-			"defaultValue": "MicrosoftWindowsDesktop"
+			"defaultValue": "MicrosoftWindowsDesktop",			
+			"metadata": {
+				"description": "Publisher of the Image. Often MicrosoftWindowsDesktop or MicrosoftWindowsServer, can be found with powershell: Get-AzVMImagePublisher -Location westeurope | Select PublisherName"
+			}
 		},
 		"offer": {
 			"type": "string",
-			"defaultValue": "windows-10"
+			"defaultValue": "windows-10",			
+			"metadata": {
+				"description": "Offer of the image, can be found with powershell: Get-AzVMImageOffer -Location westeurope -PublisherName MicrosoftWindowsDesktop | Select Offer"
+			}
 		},
 		"sku": {
 			"type": "string",
-			"defaultValue": "19h2-evd"
+			"defaultValue": "19h2-evd",			
+			"metadata": {
+				"description": "SKU of the image, can be found with powershell: Get-AzVMImageSku -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 | Select SKUs"
+			}
 		},
 		"version": {
 			"type": "string",
@@ -26,13 +35,6 @@
 			"defaultValue": "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/BuildScripts/W10-CVAD-SingleSession.ps1",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
-			}
-		},
-		"SIGImageDefinitionId": {
-			"type": "string",
-			"defaultValue": "",
-			"metadata": {
-				"description": "Id of Shared Image Gallery to distribute image to, eg: /subscriptions/<subscriptionID>/resourceGroups/<SIG resourcegroup>/providers/Microsoft.Compute/galleries/<SIG name>/images/<image definition>"
 			}
 		},
 		"ManagedImageName": {

@@ -18,8 +18,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $AIBResourceGroup -TemplateUri 
 $ImageTemplateName = $Output.Outputs["imageTemplateName"].Value
 Invoke-AzResourceAction -ResourceGroupName $AIBResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ResourceName $ImageTemplateName -Action Run
 
-(Get-AzResource -ResourceGroupName RG_EUS_AzureImageBuilder -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus
-
-
-
+(Get-AzResource -ResourceGroupName $AIBResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus
 

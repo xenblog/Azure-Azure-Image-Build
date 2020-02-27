@@ -28,16 +28,17 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 # Deploy AIB Template
 $TemplateUri = "https://raw.githubusercontent.com/xenblog/Azure-Azure-Image-Build/master/Templates/AIB-W10-SingleSession-CVAD-SIG.json"
-$managedImage = New-AzResourceGroupDeployment -ResourceGroupName $SIGResourceGroup -TemplateUri $TemplateUri -OutVariable Output -Verbose -SIGImageDefinitionId $galleryImage.Id
+New-AzResourceGroupDeployment -ResourceGroupName $SIGResourceGroup -TemplateUri $TemplateUri -OutVariable Output -Verbose -SIGImageDefinitionId $galleryImage.Id
 
 # Start Building the Golden Image
 $ImageTemplateName = $Output.Outputs["imageTemplateName"].Value
-Invoke-AzResourceAction -ResourceGroupName $SIGResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ResourceName $ImageTemplateName -Action Run
+$managedImage = Invoke-AzResourceAction -ResourceGroupName $SIGResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ResourceName $ImageTemplateName -Action Run
 
 (Get-AzResource -ResourceGroupName $SIGResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus
 
 
 $managedImage = Get-AzImage `
+   -Name "AIB-Image-SIG" `
    -ResourceGroupName $SIGResourceGroup
 
 # Create an image version
@@ -52,7 +53,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01' `
+   -PublishingProfileEndOfLifeDate '2010-01-01' `
    -asJob
 
    

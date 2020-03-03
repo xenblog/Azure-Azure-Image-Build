@@ -11,14 +11,14 @@
 		},
 		"offer": {
 			"type": "string",
-			"defaultValue": "windows-10",			
+			"defaultValue": "WindowsServer",			
 			"metadata": {
 				"description": "Offer of the image, can be found with powershell: Get-AzVMImageOffer -Location westeurope -PublisherName MicrosoftWindowsServer | Select Offer"
 			}
 		},
 		"sku": {
 			"type": "string",
-			"defaultValue": "19h2-evd",			
+			"defaultValue": "2019-Datacenter-Core",			
 			"metadata": {
 				"description": "SKU of the image, can be found with powershell: Get-AzVMImageSku -Location westeurope -PublisherName MicrosoftWindowsServer -Offer WindowsServer | Select SKUs"
 			}

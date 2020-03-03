@@ -25,7 +25,7 @@
 		},
 		"version": {
 			"type": "string",
-			"defaultValue": "latest",			
+			"defaultValue": "17763.1039.2002091844",			
 			"metadata": {
 				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location westeurope -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter-Core"
 			}
